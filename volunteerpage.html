@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer Options</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-image: url('C:/Users/Jonnada Rakshitha/Desktop/forest-3622519__480.webp');
+            background-color: rgba(255, 255, 255, 0.7); /* Lighten the background color */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .option {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            cursor: pointer;
+        }
+        .option:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Volunteer Options</h1>
+
+<script>
+    // Define your dynamic button data here
+    var buttonData = [
+        { text: "Login", url: "loginpage2.html" },
+        { text: "Register", url: "register1.html" },
+        { text: "Contact", url: "contact1.html" }
+        // Add more button data as needed
+    ];
+
+    // Function to create dynamic buttons
+    function createButtons() {
+        var container = document.body;
+        buttonData.forEach(function(button) {
+            var newButton = document.createElement("div");
+            newButton.className = "option";
+            newButton.textContent = button.text;
+            newButton.addEventListener("click", function() {
+                window.location.href = button.url;
+            });
+            container.appendChild(newButton);
+        });
+    }
+
+    // Call the function to create dynamic buttons
+    createButtons();
+</script>
+
+</body>
+</html>

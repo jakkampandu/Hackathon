@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        html {
+            background-image: url('C:/Users/PANDU REDDY/Desktop/Pollution/EnvironmentalVolunteerWebsite/5.webp');
+            background-color: rgba(255, 255, 255, 0.7); /* Lighten the background color */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            color: #000000;
+        }
+
+        .navbar {
+            background-color: #333333;
+            padding: 15px 0;
+            text-align: center;
+        }
+        .navbar a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+        .navbar a:hover {
+            background-color: #555555;
+        }
+        .container {
+            position: relative;
+            padding: 40px;
+            max-width: 800px;
+            margin: 50px auto;
+            text-align: center;
+        }
+        .login-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .login-button {
+            padding: 15px 30px;
+            background-color: #4CAF50;
+            color: #ffffff;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            font-size: 1.2em;
+            box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
+        }
+        .login-button:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+
+        /* Thought Box Styles */
+        .thought-box {
+            background-color: #f2f2f2;
+            border-radius: 10px;
+            padding: 60px; /* Increase padding to make it bigger */
+            margin-top: 50px; /* Increase margin to push it down */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .thought-box h3 {
+            margin-top: 0;
+            font-size: 1.5em;
+            color: #333333;
+        }
+
+        .thought-box p {
+            font-size: 1.4em; /* Increase font size for better readability */
+            color: #333333; /* Change font color */
+            font-family: 'Times New Roman', serif; /* Change font family for handwriting style */
+            line-height: 1.6; /* Adjust line height for better spacing */
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        /* About Us Paragraph Style */
+        .about-us {
+            display: none;
+            background-color: #f2f2f2;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-size: 1.2em;
+            color: #333333;
+            line-height: 1.6;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <a onclick="toggleAboutUs()">About Us</a>
+    <a href="contact1.html">Contact</a> <!-- New contact link -->
+</div>
+
+<div class="container">
+    <div class="login-buttons">
+        <button class="login-button" onclick="location.href='volunteerpage.html'">Volunteer</button>
+        <button class="login-button" onclick="location.href='https://www.youtube.com/watch?v=GVBeY1jSG9Y'">Learner</button>
+    </div>
+
+    <!-- About Us Paragraph -->
+    <div id="about-us" class="about-us">
+        Welcome to our Environmental Volunteer Opportunities website! We are a passionate community dedicated to protecting our planet and fostering sustainable living. Our mission is to connect volunteers with impactful environmental projects that make a real difference. Whether you're a seasoned environmentalist or just starting out, we offer a range of opportunities to suit your interests and skills. Join us in creating a cleaner, greener, and healthier world for future generations. Together, we can turn small actions into big changes. Let's make a positive impact on our environment, one volunteer at a time.
+    </div>
+
+    <!-- Thought Box -->
+    <div class="thought-box">
+        <p>To leave the world better than you found it, sometimes you have to pick up other people's trash.</p>
+        <p>Water and air, the two essential fluids on which all life depends, have become global garbage cans.</p>
+        <p>When the last tree has been cut down, the last fish caught, the last river poisoned, only then will we realize that one cannot eat money.</p>
+        <p>The Earth does not belong to us. We belong to the Earth.</p>
+        <p>Protecting our environment is not a luxury we can choose to enjoy, but a simple matter of survival.</p>
+        <p>The environment is where we all meet; where we all have a mutual interest; it is the one thing all of us share.</p>
+        <p>We won't have a society if we destroy the environment.</p>
+    </div>
+</div>
+
+<script>
+    // Function to show thoughts one by one
+    function showThoughts() {
+        var thoughts = document.querySelectorAll('.thought-box p');
+        var i = 0;
+
+        function showNextThought() {
+            if (i < thoughts.length) {
+                thoughts[i].style.opacity = '1'; // Show the thought
+                i++;
+                if (i < thoughts.length) {
+                    setTimeout(function() {
+                        thoughts[i - 1].style.opacity = '0'; // Hide the previous thought
+                        showNextThought(); // Show the next thought after hiding the previous one
+                    }, 5000); // Delay before showing next thought (in milliseconds)
+                }
+            }
+        }
+
+        showNextThought(); // Start showing thoughts
+    }
+
+    // Call showThoughts function after page load
+    window.onload = showThoughts;
+
+    // Function to toggle the visibility of the About Us paragraph
+    function toggleAboutUs() {
+        var aboutUs = document.getElementById('about-us');
+        if (aboutUs.style.display === 'none' || aboutUs.style.display === '') {
+            aboutUs.style.display = 'block';
+        } else {
+            aboutUs.style.display = 'none';
+        }
+    }
+</script>
+
+</body>
+</html>
